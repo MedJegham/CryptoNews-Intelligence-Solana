@@ -1,0 +1,34 @@
+{
+  "1_loaded": {
+    "coindesk_hf": 229172,
+    "cryptovision": 188431
+  },
+  "2_non_empty_title": 417293,
+  "3_valid_dates": 393282,
+  "4_solana_filter": {
+    "cryptovision": 13213,
+    "coindesk_hf": 11614
+  },
+  "5_min_words": 24818,
+  "6_exact_dedup": 15340,
+  "7_near_dedup": 14953,
+  "final": {
+    "n": 14953,
+    "by_source": {
+      "coindesk_hf": 10472,
+      "cryptovision": 4481
+    },
+    "by_year": {
+      "2020": 41,
+      "2021": 839,
+      "2022": 1606,
+      "2023": 2228,
+      "2024": 8234,
+      "2025": 2005
+    },
+    "solana_in_title": 11942,
+    "in_dlt": 753,
+    "date_min": "2020-03-09 19:49:00+00:00",
+    "date_max": "2025-08-27 17:26:34+00:00"
+  }
+}

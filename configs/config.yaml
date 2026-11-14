@@ -32,6 +32,11 @@ corpus:
   annotation_target: 900       # fallback : 600 (test >= 300)
   kappa_target: 0.6
   near_duplicate_threshold: 92 # score rapidfuzz token_sort_ratio (0-100)
+  near_duplicate_window_days: 7  # quasi-doublon seulement si publié à <= 7 jours d'écart
+  annotation_desc_only_max_share: 0.15  # part max de titres « Solana dans la description seulement »
+  min_title_words: 3          # retire « Solana », « X icon », noms de sources...
+  date_min: "2020-01-01"       # Solana mainnet beta : mars 2020
+  date_max: "2025-12-31"
   solana_filter:
     include_ecosystem: true    # décision 2026-11-14 : strict + écosystème
     fields: [title, description]  # Solana cherché dans le titre OU la description

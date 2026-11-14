@@ -23,12 +23,28 @@ Fine-tuning (semaine 4, GPU Colab/Kaggle) : `pip install -r requirements.txt -r 
 ```powershell
 python -m cryptonews.data.download        # DLT-Sentiment-News + CoinDesk (Hugging Face)
 python -m cryptonews.data.probe_solana    # mesure du sous-ensemble Solana (jalon 1)
+python -m cryptonews.data.build_corpus    # -> data/interim/solana_corpus_v1.parquet + reports/corpus_v1_stats.json
 ```
+
+Notebooks : choisir le kernel **Python (cryptonews)**
+(`python -m ipykernel install --user --name cryptonews --display-name "Python (cryptonews)"`).
+`notebooks/01_eda_corpus.ipynb` : analyse exploratoire du corpus V1 (figures dans `reports/figures/`).
 
 CryptoVision : téléchargement manuel depuis https://data.mendeley.com/datasets/wvjjxr8bxx
 (« Download All »), puis extraction dans `data/raw/cryptovision/`.
 
 Sources et licences : [docs/sources_licences.md](docs/sources_licences.md).
+
+## Annotation (semaine 2)
+
+```powershell
+python -m cryptonews.annotation.sample                 # tirage 900 + 300 réserve -> data/annotation/to_annotate.csv
+streamlit run src/cryptonews/annotation/app.py         # outil d'annotation à l'aveugle
+python -m cryptonews.annotation.kappa                  # kappa intra-annotateur (après la ré-annotation)
+```
+
+Guide : [docs/guide_annotation.md](docs/guide_annotation.md). Les labels sont écrits dans
+`data/annotation/solana_annotations.csv` (versionné) à chaque clic.
 
 ## Arborescence
 
