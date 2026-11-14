@@ -1,0 +1,52 @@
+# Configuration centrale du projet (proposition V4)
+seed: 42
+seeds: [13, 42, 123, 2024, 31337]   # 5 graines (O2)
+
+paths:
+  raw: data/raw
+  interim: data/interim
+  processed: data/processed
+  annotation: data/annotation
+  market: data/market
+  models: models
+  figures: reports/figures
+
+sources:
+  dlt_sentiment_news:
+    hf_id: ExponentialScience/DLT-Sentiment-News
+    license: CC-BY-NC-4.0
+    role: entraînement général (a)
+  coindesk:
+    hf_id: maryamfakhari/crypto-news-coindesk-2020-2025
+    license: CC-BY-NC-4.0
+    role: corpus Solana (b) — source secondaire
+  cryptovision:
+    doi: 10.17632/wvjjxr8bxx.2
+    url: https://data.mendeley.com/datasets/wvjjxr8bxx
+    license: CC-BY-4.0
+    role: corpus Solana (b) — source principale
+    manual_download_dir: data/raw/cryptovision   # téléchargement manuel ("Download All")
+
+corpus:
+  target_min_articles: 1500    # O1
+  annotation_target: 900       # fallback : 600 (test >= 300)
+  kappa_target: 0.6
+  near_duplicate_threshold: 92 # score rapidfuzz token_sort_ratio (0-100)
+  solana_filter:
+    include_ecosystem: true    # décision 2026-11-14 : strict + écosystème
+    fields: [title, description]  # Solana cherché dans le titre OU la description
+    body_as_description_chars: 300  # sources sans description (CoinDesk) : début du corps
+
+split:                          # découpage chronologique des titres Solana annotés
+  train: 0.30
+  val: 0.20
+  test: 0.50
+
+labels: [negative, neutral, positive]
+
+market:
+  symbols: [SOLUSDT, BTCUSDT]
+  interval: 1h
+  horizons_h: [1, 4, 24]
+  beta_window_days: 30
+  event_window_h: 4

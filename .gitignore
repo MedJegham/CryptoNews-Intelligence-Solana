@@ -1,0 +1,24 @@
+# Environnement
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+.env
+
+# Données volumineuses / sous licence (non redistribuées) — seules les annotations sont versionnées
+data/raw/*
+data/interim/*
+data/processed/*
+data/market/*
+!data/**/.gitkeep
+
+# Modèles entraînés (trop lourds pour Git)
+models/*
+!models/.gitkeep
+
+# Divers
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

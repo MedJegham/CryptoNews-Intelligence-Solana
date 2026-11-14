@@ -1,0 +1,6 @@
+# Dépendances du fine-tuning (semaine 4) — à installer sur Colab/Kaggle (GPU)
+# Sur Colab : !pip install -r requirements.txt -r requirements-transformer.txt
+torch>=2.2
+transformers>=4.41
+accelerate>=0.30
+evaluate>=0.4
